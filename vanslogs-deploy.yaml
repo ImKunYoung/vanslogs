@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: vanslogs
+  name: vanslogs
+  namespace: vanslogs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vanslogs
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: vanslogs
+    spec:
+      containers:
+      - image: imkunyoung/vanslogs
+        name: vanslogs
+        resources: {}
+status: {}
