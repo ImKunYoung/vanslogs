@@ -1,0 +1,41 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/static-ip: 34.121.79.2
+    ingress.kubernetes.io/backends: '{"k8s1-3d52f60b-kube-system-default-http-backend-80-9950383d":"HEALTHY","k8s1-3d52f60b-vanslogs-vanslogs-svc-80-448356c0":"HEALTHY"}'
+    ingress.kubernetes.io/forwarding-rule: k8s2-fr-diavcbsm-vanslogs-vanslogs-ingress-qtiz0wt2
+    ingress.kubernetes.io/https-forwarding-rule: k8s2-fs-diavcbsm-vanslogs-vanslogs-ingress-qtiz0wt2
+    ingress.kubernetes.io/https-target-proxy: k8s2-ts-diavcbsm-vanslogs-vanslogs-ingress-qtiz0wt2
+    ingress.kubernetes.io/ssl-cert: k8s2-cr-diavcbsm-z5bl6gfpp1o9xsxu-a6754d451e19bd2e
+    ingress.kubernetes.io/static-ip: k8s2-fr-diavcbsm-vanslogs-vanslogs-ingress-qtiz0wt2
+    ingress.kubernetes.io/target-proxy: k8s2-tp-diavcbsm-vanslogs-vanslogs-ingress-qtiz0wt2
+    ingress.kubernetes.io/url-map: k8s2-um-diavcbsm-vanslogs-vanslogs-ingress-qtiz0wt2
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{},"creationTimestamp":"2023-08-22T14:35:35Z","finalizers":["networking.gke.io/ingress-finalizer-V2"],"generation":2,"name":"vanslogs-ingress","namespace":"vanslogs","resourceVersion":"22062976","uid":"9b8224ed-c6f8-4200-a372-e70927814cd1"},"spec":{"rules":[{"host":"vanslogs.store","http":{"paths":[{"backend":{"service":{"name":"vanslogs-svc","port":{"number":80}}},"path":"/","pathType":"Exact"}]}}],"tls":[{"hosts":["vanslogs.store"],"secretName":"gasbugs-tls"}]},"status":{"loadBalancer":{}}}
+  creationTimestamp: "2023-08-26T02:32:32Z"
+  deletionGracePeriodSeconds: 0
+  deletionTimestamp: "2023-08-26T02:48:21Z"
+  finalizers:
+  - networking.gke.io/ingress-finalizer-V2
+  generation: 3
+  name: vanslogs-ingress
+  namespace: vanslogs
+  resourceVersion: "24465331"
+  uid: 86128536-c25f-4a6b-9ddd-46912d142ece
+spec:
+  rules:
+  - host: vanslogs.store
+    http:
+      paths:
+      - backend:
+          service:
+            name: vanslogs-svc
+            port:
+              number: 80
+        path: /
+        pathType: Exact
+  tls:
+  - hosts:
+    - vanslogs.store
+    secretName: ingress-tls
